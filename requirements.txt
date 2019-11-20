@@ -1,0 +1,6 @@
+cryptography
+flask
+flaskwebgui
+pillow
+numpy
+easygui

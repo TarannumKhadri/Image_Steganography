@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+        <title>
+            Image Steganography
+        </title>
+    </head>
+    <body>
+        <div class="alert" id="alert">
+            <input type="text" value="" id="alert_text" disabled>
+        </div>
+        <div class=main1 id="main_card1" onscroll="activate_back()">
+            <div class="card" id="card1" name="hide" onclick="hide()">
+                <img src="{{ url_for('static',filename='images/lock.png') }}">
+                <hr>
+                <h1>Hide</h1>
+                <p>Choose this if you want to Embed a file into an image</p>
+            </div>
+            <div class="card" id="card2" name="show" onclick="show()">
+                <img src="{{ url_for('static',filename='images/unlock.png') }}">
+                <hr>
+                <h1>Show</h1>
+                <p>Choose this if you want to Extract the embedded data in an image</p>
+            </div>
+        </div>
+        <div class="hide_main" id="h1">
+            <div class="get_file">
+                <h1>Select the Image File</h1>
+                <p>The Selected Image file will be the base on which data will be embedded<br>
+                    Please choose only *.png files as they are in lossless format and wont cause any loss of data
+                </p><br><br><br>
+                <span class="hide_sp" id="hide_im" onclick="hide_im()">Select Image</span>
+                <span id="back1" onclick="back()">Back to Top</span>
+            </div>
+        </div>
+        <div class="hide_main" id="h2">
+            <div class="get_file">
+                <h1>Select the Embed File</h1>
+                <p>The Selected Embed file will be coverted to binary and will be embedded to the image<br>
+                    All file formats are supported : Ex : mp3, jpg, txt, csv, docx  </p><br><br><br>
+                <span class="hide_sp" id="hide_em" onclick="hide_em()">Select Embed File</span>
+            </div>
+        </div>
+        <div class="end_tile" id="h3">
+            <div class="end_span">
+                <span onclick="final_hide()">Embed</span>
+            </div>
+        </div>
+        <div class="show_main" id="s1">
+            <div class="get_file">
+                <h1>Select the Image File</h1>
+                <p>The Embedded data will be extracted from the Selected image File<br>
+                </p><br><br><br>
+                <span class="show_sp" id="show_im" onclick="show_im()">Select Image</span>
+                <span id="back2" onclick="back()">Back to Top</span>
+            </div>
+        </div>
+        <div class="show_main" id="s2">
+                <div class="get_file">
+                    <h1>Type the Format</h1>
+                    <p>The Extracted data must have a format<br>
+                        Ex : mp3, jpg, txt .....etc
+                    </p><br><br><br>
+                    <input class="show_input" type="text" placeholder=" Format" id='format'><br>
+                    <span class="show_sp" id="show_format" onclick="show_format()">Submit</span>
+            </div>
+        </div>
+        <div class="show_main" id="s3">
+            <div class="get_file">
+                <h1>Type the Key</h1>
+                <p>Please type the key for the decryption of the embedded data<br>
+                </p><br><br><br>
+                <input class="show_input" type="password" placeholder=" Key" id='key'><br>
+                <span class="show_sp" id="show_key" onclick="show_key()">Submit</span>
+            </div>
+        </div>
+        <div class="end_tile" id="s4">
+            <div class="end_span">
+                <span onclick="final_show()">Extract</span>
+            </div>
+        </div>
+        <script src="{{url_for('static',filename='js/index.js')}}"></script>
+    </body>
+</html>
